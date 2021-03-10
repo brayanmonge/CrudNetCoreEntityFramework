@@ -46,6 +46,19 @@ namespace CoreVanillaJs.Controllers
             }
             return Ok();
         }
+        [HttpPut]
+        public ActionResult Post1([FromBody] Models.Persona model)
+        {
+            using (Models.CrudVanelaContext db = new Models.CrudVanelaContext())
+            {
+                Models.Persona oPersona = db.Persona.Find(model.Id);
+                oPersona.Nombre = model.Nombre;
+                oPersona.Edad = model.Edad;
+                db.Entry(oPersona).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                db.SaveChanges();
+            }
+            return Ok();
+        }
         
     }
 }
