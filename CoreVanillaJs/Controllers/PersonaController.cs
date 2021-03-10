@@ -46,6 +46,15 @@ namespace CoreVanillaJs.Controllers
             }
             return Ok();
         }
+        /// <summary>
+        /// Metodo para actualizar datos 
+        /// </summary>
+        /// <param name="model">
+        /// Busca por Id y actualiza 
+        /// </param>
+        /// <returns>
+        /// Si los datos estan correctos 
+        /// </returns>
         [HttpPut]
         public ActionResult Post1([FromBody] Models.Persona model)
         {
